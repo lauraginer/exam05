@@ -6,7 +6,20 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 21:22:52 by lauragm           #+#    #+#             */
-/*   Updated: 2026/08/02 21:22:53 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/08/18 19:56:40 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef VECT2_HPP
+#define VECT2_HPP
+
+class vect2
+{
+	private:
+		int x;
+		int y;
+	
+	public:
+			
+}
+#endif
