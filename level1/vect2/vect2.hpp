@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 21:22:52 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/01 21:56:23 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/01 22:06:40 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ class vect2
 		int operator[](int index) const;
 };
 
-std::ostream& operator<<(std::ostream& os, const vect2& v);
+std::ostream& operator<<(std::ostream& os, const vect2 &v);
 #endif

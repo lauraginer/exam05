@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 21:22:50 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/01 21:56:03 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/01 22:06:30 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int vect2::operator[](int index) const
 		return(y);
 }
 
-std::ostream& operator<<(std::ostream& os, const vect2& v)
+std::ostream& operator<<(std::ostream& os, const vect2 &v)
 {
 	os << "{" << v[0] << ", " << v[1] << "}"; //utilizamos nuestro operador []
 	return(os);
