@@ -6,13 +6,14 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 21:22:52 by lauragm           #+#    #+#             */
-/*   Updated: 2026/09/30 21:06:32 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/01 21:56:23 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECT2_HPP
 #define VECT2_HPP
 
+#include <iostream>
 class vect2
 {
 	private:
@@ -27,8 +28,9 @@ class vect2
 		vect2& operator=(const vect2 &copy);
 
 	//Funciones explícitas del ejercicio
-		int& vect2::operator[](int i);
-		int vect2::operator[](int i) const;
-	
+		int& operator[](int index);
+		int operator[](int index) const;
 };
+
+std::ostream& operator<<(std::ostream& os, const vect2& v);
 #endif
