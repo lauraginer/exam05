@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 21:22:52 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/01 22:06:40 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/04 20:23:26 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,13 @@ class vect2
 	//Funciones explícitas del ejercicio
 		int& operator[](int index);
 		int operator[](int index) const;
+
+		vect2 operator+(const vect2 &v) const;
+		vect2 operator-(const vect2 &v) const;
+		vect2 operator*(int s) const;
 };
 
-std::ostream& operator<<(std::ostream& os, const vect2 &v);
+friend std::ostream& operator<<(std::ostream& os, const vect2 &v);
+friend vect2 operator*(int s, const vect2 &v);
+
 #endif
