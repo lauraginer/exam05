@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 21:22:50 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/04 20:41:52 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/06 21:06:21 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,67 @@ vect2 vect2::operator+(const vect2 &v) const
 }
 vect2 vect2::operator-(const vect2 &v) const
 {
-	return(vect2(x - v.x, y - y.x));
+	return(vect2(x - v.x, y - v.y));
 }
 vect2 vect2::operator*(int s) const
 {
 	return(vect2(x * s, y * s));
+}
+vect2 vect2::operator-() const
+{
+	return(vect2(-x, -y));
+}
+vect2& vect2::operator+=(const vect2 &v)
+{
+	x += v.x;
+	y += v.y;
+	return(*this);
+}
+vect2& vect2::operator-=(const vect2 &v)
+{
+	x -= v.x;
+	y -= v.y;
+	return(*this);
+}
+vect2& vect2::operator*=(int s)
+{
+	x *= s;
+	y *= s;
+	return(*this);
+}
+
+vect2& vect2::operator++()
+{
+	x++;
+	y++;
+	return(*this);
+}
+vect2 vect2::operator++(int)
+{
+	vect2 tmp = *this;
+	x++;
+	y++;
+	return(tmp);
+}
+vect2& vect2::operator--()
+{
+	x--;
+	y--;
+	return(*this);
+}
+vect2 vect2::operator--(int)
+{
+	vect2 temp = *this;
+	x--;
+	y--;
+	return(temp);
+}
+
+bool vect2::operator==(const vect2 &v) const
+{
+	return(x == v.x && y == v.y);
+}
+bool vect2::operator!=(const vect2 &v) const
+{
+	return(!(x == v.x && y == v.y));
 }

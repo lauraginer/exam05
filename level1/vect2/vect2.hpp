@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 21:22:52 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/04 20:23:26 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/06 21:26:58 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,21 @@ class vect2
 		vect2 operator+(const vect2 &v) const;
 		vect2 operator-(const vect2 &v) const;
 		vect2 operator*(int s) const;
-};
+		vect2 operator-() const; //operador de negación unaria
+		vect2& operator+=(const vect2 &v);
+		vect2& operator-=(const vect2 &v);
+		vect2& operator*=(int s);
+		
+		vect2& operator++(); //incrementa
+		vect2 operator++(int); //"no incrementa"
+		vect2& operator--();
+		vect2 operator--(int);
 
-friend std::ostream& operator<<(std::ostream& os, const vect2 &v);
-friend vect2 operator*(int s, const vect2 &v);
+		bool operator==(const vect2 &v) const;
+		bool operator!=(const vect2 &v) const;		
+		
+		friend std::ostream& operator<<(std::ostream& os, const vect2 &v);
+		friend vect2 operator*(int s, const vect2 &v);
+};
 
 #endif
