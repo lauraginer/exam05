@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 21:22:50 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/06 21:06:21 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/11 22:04:48 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,6 @@ int vect2::operator[](int index) const
 		return(x);
 	else
 		return(y);
-}
-
-//----No pertenecen a la clase----
-vect2 operator*(int s, const vect2 &v)
-{
-	return(vect2(v.x * s, v.y * s));
-}
-std::ostream& operator<<(std::ostream& os, const vect2 &v)
-{
-	os << "{" << v[0] << ", " << v[1] << "}"; //utilizamos nuestro operador []
-	return(os);
 }
 
 vect2 vect2::operator+(const vect2 &v) const
@@ -124,4 +113,15 @@ bool vect2::operator==(const vect2 &v) const
 bool vect2::operator!=(const vect2 &v) const
 {
 	return(!(x == v.x && y == v.y));
+}
+
+//----No pertenecen a la clase----
+vect2 operator*(int s, const vect2 &v)
+{
+	return(vect2(v.x * s, v.y * s));
+}
+std::ostream& operator<<(std::ostream& os, const vect2 &v)
+{
+	os << "{" << v[0] << ", " << v[1] << "}"; //utilizamos nuestro operador []
+	return(os);
 }
