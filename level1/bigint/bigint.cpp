@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/11 19:34:36 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/11 22:02:11 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/14 22:09:17 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bigint::bigint(): s("0"){
 }
 bigint::bigint(unsigned int n)
 {
-	std::ostringstream os; //funciona como un std::cout, pero lo imprimido se fuarda dentro de os
+	std::ostringstream os; //funciona como un std::cout, pero lo imprimido se uarda dentro de os
 	os << n; //guarda "n" como caracteres dentro de os 
 	s = os.str();
 }
@@ -53,4 +53,48 @@ bigint& bigint::operator+=(const bigint &b) //suma del cole
 bigint bigint::operator+(const bigint &b) const
 {
 	return(bigint(*this) += b);
+}
+
+bigint& bigint::operator++()
+{
+	return(*this += 1);
+}
+bigint bigint::operator++(int)
+{
+	bigint temp = *this;
+	*this += 1;
+	return(temp);
+}
+
+bool bigint::operator==(const bigint &b) const
+{
+	return(s == b.s);
+}
+bool bigint::operator!=(const bigint &b) const
+{
+	return(!(*this == b));
+}
+bool bigint::operator<(const bigint &b) const
+{
+	if(s.size() != b.s.size())
+		return(s.size() < b.s.size()); 
+	return(s < b.s); 
+}
+bool bigint::operator>(const bigint &b) const
+{
+	if(s.size() != b.s.size())
+		return(s.size() > b.s.size());
+	return(s > b.s);
+}
+bool bigint::operator<=(const bigint &b) const
+{
+	if(s.size() != b.s.size())
+		return(s.size() < b.s.size()); 
+	return(s <= b.s); 
+}
+bool bigint::operator>=(const bigint &b) const
+{
+	if(s.size() != b.s.size())
+		return(s.size() > b.s.size());
+	return(s >= b.s);
 }

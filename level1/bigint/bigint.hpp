@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/11 19:34:33 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/11 21:51:02 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/14 21:19:58 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,24 @@ class bigint{
 		bigint& operator=(const bigint &copy);
 
 		//Funciones principales requeridas por el main.cpp	
-		bigint& operator+=(const bigint &b);
+		bigint& operator+=(const bigint &b); 
 		bigint operator+(const bigint &b) const;
 		
+		bigint& operator++();
+		bigint operator++(int);
+	
+		bool operator==(const bigint &b) const;
+		bool operator!=(const bigint &b) const;
+		bool operator<(const bigint &b) const;
+		bool operator>(const bigint &b) const;
+		bool operator<=(const bigint &b) const;
+		bool operator>=(const bigint &b) const;
+		
+		/*bigint& operator<<=(const bigint &b);
+		bigint operator<<(const bigint &b) const;
+		bigint& operator>>=(const bigint &b);
+		bigint operator>>(const bigint &b);*/
+
 };
 
 #endif
