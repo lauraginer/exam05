@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/11 19:34:33 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/14 21:19:58 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/15 21:03:22 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ class bigint{
 		bool operator<=(const bigint &b) const;
 		bool operator>=(const bigint &b) const;
 		
-		/*bigint& operator<<=(const bigint &b);
-		bigint operator<<(const bigint &b) const;
 		bigint& operator>>=(const bigint &b);
-		bigint operator>>(const bigint &b);*/
+		bigint& operator<<=(const bigint &b);
+		bigint operator<<(const bigint &b) const;
+		bigint operator>>(const bigint &b) const;
+
+		friend std::ostream& operator<<(std::ostream &os, const bigint &b);
 
 };
 

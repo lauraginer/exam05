@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/11 19:34:36 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/14 22:09:17 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/16 01:32:05 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,37 @@ bool bigint::operator>=(const bigint &b) const
 	if(s.size() != b.s.size())
 		return(s.size() > b.s.size());
 	return(s >= b.s);
+}
+
+bigint& bigint::operator<<=(const bigint &b)
+{
+	if(s != "0")
+		s.append(std::strtoul(b.s.c_str(), 0, 10), '0'); //s.append añade n copias del segundo argumento (char '0')
+	return(*this);
+}
+bigint& bigint::operator>>=(const bigint &b)
+{
+	size_t n = std::strtoul(b.s.c_str(), 0, 10);
+	if(n >= s.size())
+		s = "0";
+	else
+		s.erase(s.size() - n);
+	return(*this);	
+}
+bigint bigint::operator<<(const bigint &b) const
+{
+	bigint temp = *this;
+	return(temp <<= b);
+}
+bigint bigint::operator>>(const bigint &b) const
+{
+	bigint temp = *this;
+	return(temp >>= b);
+}
+
+//Funcion fuera de la clase
+std::ostream& operator<<(std::ostream &os, const bigint &b)
+{
+	os << b.s;
+	return(os);
 }
