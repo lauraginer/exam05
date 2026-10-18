@@ -6,13 +6,11 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 21:22:50 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/11 22:04:48 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/18 19:50:16 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vect2.hpp"
-/*la idea es implementar la funcion matemática, entonces hay que implementar, aparte de
-los operadores de [] y <<, toooodas las funciones matematicas, que si -, *, --, ++, etc etc*/
 
 vect2::vect2(): x(0), y(0){
 }
