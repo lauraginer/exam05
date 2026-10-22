@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 20:05:08 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/20 20:58:10 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/23 00:31:39 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,63 @@ int main(int argc, char **argv)
 		if(pen)
 			board[y][x] = 1; //casilla viva
 	}
-	
-	
+
+	for(int k = 0; k < it; k++)
+	{
+		for(int i = 0; i < hg; i++)
+		{
+			for(int j = 0; j < wd; j++)
+			{
+				int alive = 0;
+
+				if((i - 1) >= 0 && (j - 1) >= 0 && board[i - 1][j - 1]) //arriba izq.
+					alive++;
+				if((i - 1) >= 0 && board[i-1][j]) //arriba centro
+					alive++;
+				if((i - 1) >= 0 && (j + 1) < wd && board[i - 1][j + 1]) //arriba der.
+					alive++;
+
+				if((j - 1) >= 0 && board[i][j - 1]) //izq.
+					alive++;
+				if((j + 1) < wd && board[i][j + 1]) //der.
+					alive++;
+
+				if((i + 1) < hg && (j - 1) >= 0 && board[i + 1][j - 1]) //abajo izq.
+					alive++;
+				if((i + 1) < hg && board[i + 1][j]) //abajo centro
+					alive++;
+				if((i + 1) < hg && (j + 1) < wd && board[i + 1][j + 1]) //abajo der.
+					alive++;
+				
+				
+				if(board[i][j] == 1 && (alive == 2 || alive == 3)) //comprobación de si viven o mueren
+					next[i][j] = 1;
+				else if(board[i][j] == 0 && (alive == 3))
+					next[i][j] = 1;
+				else
+					next[i][j] = 0;
+			}
+		}
+		
+		for(int i = 0; i < hg; i++)
+		{
+			for(int j = 0; j < wd; j++)
+			{
+				board[i][j] = next[i][j];
+			}
+		}
+	}
+
+	for(int i = 0; i < hg; i++)
+	{
+		for(int j = 0; j < wd; j++)
+		{
+			if(board[i][j] == 0)
+				putchar(' ');
+			else if(board[i][j] == 1)
+				putchar('O');
+		}
+		putchar('\n');
+	}
+	return(0);
 }
