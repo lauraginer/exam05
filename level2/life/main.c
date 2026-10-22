@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 20:05:08 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/23 00:31:39 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/23 01:08:23 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int main(int argc, char **argv)
 	int it = atoi(argv[3]);
 	int board[hg][wd]; //para consultar estado actual
 	int next[hg][wd]; //copia para guardar resultados
+
+	/*if (wd <= 0 || hg <= 0 || it < 0)
+		return (1);*/
 	
 	for(int i = 0; i < hg; i++)
 	{
