@@ -6,13 +6,11 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 20:05:08 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/23 01:08:23 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/25 18:16:18 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "life.h"
 
 int main(int argc, char **argv)
 {
