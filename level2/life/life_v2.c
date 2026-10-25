@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 22:27:23 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/25 23:15:03 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/25 23:23:32 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,33 @@
 
 int main(int argc, char **argv)
 {
+	char c;
+	int pen;
+	int x;
+	int y;
+	int wd; 
+	int hg;
+	int it;
+	char *board;
+	char *next;
+	
 	if(argc != 4)
 		return(1);
+	
+	wd = atoi(argv[1]);
+	hg = atoi(argv[2]);
+	it = atoi(argv[3]);
+	if(it < 0) //quizas es necesario comprobar los argc si son <= 0
+		it = 0;
 
-	int wd = atoi(argv[1]);
-	int hg = atoi(argv[2]);
-	int it = atoi(argv[3]);
-	if(iter < 0) //quizas es necesario comprobar los argc si son <= 0
-		iter = 0;
-
-	char *board = calloc(wd * hg + 1, 1);
-	char *next = calloc(wd * hg, 1);
+	board = calloc(wd * hg + 1, 1);
+	next = calloc(wd * hg, 1);
 	if(!board || !next)
-		return(free(board), free(next_board), 1);
+		return(free(board), free(next), 1);
 
-	char c;
-	int pen = 0;
-	int x = 0;
-	int y = 0;
+	pen = 0;
+	x = 0;
+	y = 0;
 	while(read(0, &c, 1) == 1)
 	{
 		if(c == 'w' && y > 0)
