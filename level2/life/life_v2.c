@@ -6,13 +6,29 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 22:27:23 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/25 23:23:32 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/26 21:08:03 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+void apply_life(char *board, char *next, int wd, int hg)
+{
+	int index;
+	int neighbours;
+
+	index = 0;
+	neighbours = 0;
+	
+	while(index < wd * hg)
+	{
+		neigthbours = count_neighbours; //funcion donde se comprueban las vecinas
+		next[index] = //comprobaciones para casillas vivas
+		index++;
+	}
+}
 
 int main(int argc, char **argv)
 {
@@ -59,4 +75,7 @@ int main(int argc, char **argv)
 		if(pen)
 			board[y * wd + x] = 1;
 	}
+	
+	while(it--)
+		apply_life(board, next, wd, hg);
 }
