@@ -6,13 +6,35 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 22:27:23 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/26 21:08:03 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/27 23:47:35 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+int count_neighbours(char *board, int wd, int hg, int x, int y)
+{
+	int dx;
+	int dy;
+	int nx; //columna del vecino que comprobamos
+	int ny;
+	int neighbours; //cont de vecinos vivos
+
+	dy = -1; //la ultima fila
+	neighbours = 0;
+	while(dy <= 1)
+	{
+		dx = -1;
+		while(dx <= 1)
+		{
+			dx++;
+		}
+		dy++;
+	}
+	return(neighbours);
+}
 
 void apply_life(char *board, char *next, int wd, int hg)
 {
@@ -24,8 +46,16 @@ void apply_life(char *board, char *next, int wd, int hg)
 	
 	while(index < wd * hg)
 	{
-		neigthbours = count_neighbours; //funcion donde se comprueban las vecinas
-		next[index] = //comprobaciones para casillas vivas
+		neigthbours = count_neighbours(board, wd, hg, index % board, index / board); //funcion donde se comprueban las vecinas
+		next[index] = ((board[index] && (neighbours == 2 || neighbours == 3)) //comprobaciones para casillas vivas
+			|| (!board[index] && neighbours == 3))
+		 
+		index++;
+	}
+	index = 0;
+	while(index < wd * hg)
+	{
+		board[index] = next[index];
 		index++;
 	}
 }
