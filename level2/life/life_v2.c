@@ -6,13 +6,29 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 22:27:23 by lauragm           #+#    #+#             */
-/*   Updated: 2026/10/27 23:47:35 by lauragm          ###   ########.fr       */
+/*   Updated: 2026/10/28 21:50:52 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "life.h"
+
+void print_board(char *board, int wd, int hg)
+{
+	int index;
+
+	index = 0;
+	while(index < wd * hg)
+	{
+		if(board[index])
+			putchar('O');
+		else
+			putchar(' ');
+		
+		index++;
+		if(index % wd == 0)
+			putchar('\n');
+	}
+}
 
 int count_neighbours(char *board, int wd, int hg, int x, int y)
 {
@@ -22,13 +38,18 @@ int count_neighbours(char *board, int wd, int hg, int x, int y)
 	int ny;
 	int neighbours; //cont de vecinos vivos
 
-	dy = -1; //la ultima fila
+	dy = -1; //la primera fila
 	neighbours = 0;
 	while(dy <= 1)
 	{
 		dx = -1;
 		while(dx <= 1)
 		{
+			nx = x + dx; //pos de las casillas vecinas a comprobar
+			ny = y + dy;
+			 
+			if((dx != 0 || dy != 0) && ny >= 0 && ny < hg && nx >= 0 && nx < wd)
+				neighbours += board[ny * wd + nx];
 			dx++;
 		}
 		dy++;
@@ -46,9 +67,9 @@ void apply_life(char *board, char *next, int wd, int hg)
 	
 	while(index < wd * hg)
 	{
-		neigthbours = count_neighbours(board, wd, hg, index % board, index / board); //funcion donde se comprueban las vecinas
+		neighbours = count_neighbours(board, wd, hg, index % wd, index / wd); //funcion donde se comprueban las vecinas
 		next[index] = ((board[index] && (neighbours == 2 || neighbours == 3)) //comprobaciones para casillas vivas
-			|| (!board[index] && neighbours == 3))
+			|| (!board[index] && neighbours == 3));
 		 
 		index++;
 	}
@@ -108,4 +129,10 @@ int main(int argc, char **argv)
 	
 	while(it--)
 		apply_life(board, next, wd, hg);
+	
+	print_board(board, wd, hg);
+	free(board);
+	free(next);
+
+	return(0);
 }
